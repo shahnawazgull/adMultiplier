@@ -1,0 +1,486 @@
+/* Manage Subscription CSS  */
+.subscription-details {
+    width: 1296px;
+    height: 342px;
+    top: 150px;
+    left: 72px;
+    border-radius: 8px;
+    border-width: 1px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #0000004D;
+}
+
+.subscription-details .section,
+.subscription-details .head {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.subscription-details .head .title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 100%;
+    text-transform: capitalize;
+}
+
+.subscription-details .head .subscription-btn {
+    font-family: "Montserrat", sans-serif;
+    width: 191px;
+    /* height: 36px; */
+    border-radius: 66px;
+    padding: 7px 16px;
+    gap: 10px;
+    text-decoration: none;
+    color: #222222;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #00000080
+}
+
+.subscription-details .head .subscription-btn:hover {
+    background-color: #eeee;
+}
+
+.subscription-details .subscription-hr {
+    border: none;
+    height: 1px;
+    background-color: #CCCCCC4D;
+}
+
+.subscription-details .section {
+    font-family: "Montserrat", sans-serif;
+    margin: 0 24px;
+    padding: 10px 0;
+    border-bottom: 1px solid #CCCCCC4D;
+
+}
+
+.subscription-details .section .title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: capitalize;
+}
+
+.subscription-details .section .btn {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.subscription-details .current-plan .current-plan-btn {
+    width: 136px;
+    height: 34px;
+    padding: 6px 12px;
+    gap: 10px;
+    border-radius: 100px;
+    background-color: #0084FF;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+
+}
+
+.subscription-details .subscription-status .subscription-status-btn {
+    width: 92px;
+    /* height: 32px; */
+    padding-top: 6px;
+    padding-right: 12px;
+    padding-bottom: 6px;
+    padding-left: 12px;
+    gap: 10px;
+    border-radius: 100px;
+    border: 1px solid #00A300;
+    background-color: #32FF204D;
+    color: #00A300;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.subscription-details .subscription-status .subscription-status-btn .circle {
+    width: 7px;
+    height: 7px;
+    background-color: #00A300;
+    border-radius: 10px;
+}
+
+/* Credits Usage  */
+.subscription-details .credits-usage {
+    flex-direction: column;
+    align-items: start;
+}
+
+.subscription-details .credits-usage .title {
+    height: 44px;
+}
+
+.subscription-details .credits-usage .credits-detail {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: right;
+    text-transform: capitalize;
+    color: #000000B2;
+}
+
+/* Need More Cridit  */
+
+.need-credits {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.need-credits .need-credit-head {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.need-credits .need-credit-head .title {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    letter-spacing: -1%;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.need-credits .need-credit-head .subtitle {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 135%;
+    letter-spacing: 1%;
+    text-align: center;
+    text-transform: capitalize;
+    width: 800px;
+    color: #000000B2;
+
+}
+
+.need-credits .need-credit-form {
+    gap: 24px;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 28px 32px;
+}
+
+.need-credits .need-credit-form .content {
+    width: 355px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.need-credits .need-credit-form .content .head {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: capitalize;
+    color: #0059FF;
+}
+
+.need-credits .need-credit-form .content .input-group {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    color: #000000B2;
+}
+
+.need-credits .need-credit-form .content .input-group #amount {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #CBD5E1;
+    font-size: 16x;
+    height: 40px;
+}
+
+.need-credits .need-credit-form .content .submit-btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    padding: 6px 18px;
+    background-color: #0059FF;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    border: none;
+}
+
+
+/* Scale Creative at any Level  */
+.scale-level {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.scale-level .head .head-title {
+    font-family: Poppins;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 125%;
+    letter-spacing: 0%;
+    text-align: center;
+
+}
+
+.scale-level .head .head-title .blue {
+    color: #0059FF;
+    font-weight: 600;
+}
+
+.scale-level .scale-cards {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.scale-level .scale-cards .card {
+    width: 418px;
+    /* height: 367px; */
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 16px;
+    padding: 46px 20px;
+    background-color: #fff;
+}
+
+.scale-cards .card .price .title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    /* text-align: center; */
+    margin-bottom: 20px;
+}
+
+.scale-cards .card .price .premium {
+    background: linear-gradient(135deg, #111111 0%, #8E8E8E 38%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.scale-cards .card .price .amount {
+    font-family: "Inter";
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 112.99999999999999%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.scale-cards .card .price .amount .time {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    vertical-align: middle;
+}
+
+.scale-cards .card .price .subtitle {
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+    letter-spacing: 1%;
+    vertical-align: middle;
+    color: #111111B2;
+
+}
+
+.scale-cards .card .validation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.scale-cards .card .validation .valid-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 120%;
+    letter-spacing: -1%;
+    display: flex;
+    align-items: center;
+    color: #111111B2;
+}
+
+.scale-cards .card .validation .valid-title img {
+    margin-right: 4px;
+}
+
+.card .card-btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    padding: 8px 16px;
+    background-color: #0059FF;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.card .cancel-btn {
+    width: 100%;
+    height: 40px;
+    border-radius: 6px;
+    padding: 8px 16px;
+    background-color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border: 1px solid #CCCCCC;
+}
+
+
+/* Manage Subscriprion Popup CSS  */
+.popup {
+    max-width: 100vw;
+    min-height: 100%;
+    background-color: #00000033;
+    /* z-index: -1; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.popup .popup-card {
+    width: 462px;
+    height: 148px;
+    position: fixed;
+    top: calc(50vh - 100px);
+    left: calc(50vw - 250px);
+    border-radius: 6px;
+    border-width: 1px;
+    padding: 24px;
+    gap: 16px;
+    background-color: #fff;
+}
+
+.popup-card .cross {
+    position: absolute;
+    right: 24px;
+    top: 20px;
+    cursor: pointer;
+}
+
+.popup-card .head {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.popup-card .head .title {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -2.5%;
+    margin-top: 5px;
+    color: #09090B;
+}
+
+.popup-card .head .subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    color: #71717A;
+}
+
+.buttons {
+    margin-top: 16px;
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+
+.buttons .no {
+    width: 74px;
+    height: 40px;
+    top: 798px;
+    left: 668px;
+    border-radius: 6px;
+    border-width: 1px;
+    gap: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    border: 1px solid #E4E4E7;
+    background-color: #fff;
+    color: #18181B;
+    cursor: pointer;
+}
+
+.buttons .yes {
+    width: 167px;
+    height: 40px;
+    border-radius: 6px;
+    gap: 8px;
+    padding-top: 8px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    color: #fff;
+    background-color: #FF6D6D;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}

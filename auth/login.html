@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | AdMultiplier</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="logo">
+                <a href="/"><img src="../assets/images/logo.svg" alt="AdMultiplier"></a>
+            </div>
+            <div class="content">
+                <form class="form" action="../dashboard/dashboard.html">
+                    <div class="input-groups">
+                        <div class="form-group">
+                            <label class="label" for="email">Email</label>
+                            <input type="email" class="input" name="email" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group group-password">
+                            <label class="label" for="password">Password</label>
+                            <input type="password" class="input" name="password" id="password" placeholder="Password" required>
+                            <img src="../assets/images/eye.svg" alt="Show" class="show-eye" id="togglePassword">
+                            <a href="forgot.html" class="link-tag">Forgot Password?</a>
+                        </div>
+                    </div>
+                    <button type="submit" class="button">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', () => {
+            // Toggle the input type between 'password' and 'text'
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+    </script>
+</body>
+</html>

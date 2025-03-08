@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AdMultiplier</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="../dashboard/dashboard.html">
+                <img src="../assets/images/logo.svg" alt="">
+            </a>
+            <div class="profile-section">
+                <div class="credits">
+                    Credits Remaining: <span>25</span>
+                </div>
+                <div class="profile">
+                    <img src="../assets/images/profile-icon.svg" alt="" id="profileIcon">
+                    <div class="profile-menu hidden" id="profileMenu">
+                        <div class="user-info section">
+                            <p class="username">Moncef Meharzi</p>
+                            <p class="useremail">moncefmeharzi@gmail.com</p>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="links section">
+                            <a href="manage-subscription.html" class="link">Manage Subscription</a>
+                            <a href="download-history.html" class="link">Download History</a>
+                            <a href="#" class="link">Facebook Compaign Builder</a>
+                            <a href="#" class="link">Affiliate</a>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="logout section">
+                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon"
+                                    alt="">
+                                Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+
+            <div class="content">
+                <div class="floating-content">
+                    <div class="float-layout">
+                        <div class="float-title">
+                            <p class="title">VideoCrafter.io</p>
+                            <p class="subtitle">Turn scripts into stunning video ads in minutes with AI.</p>
+                        </div>
+                        <div class="float-list">
+                            <li class="list">Create both leads & body content effortlessly</li>
+                            <li class="list">AI-powered voice-over & subtitles</li>
+                            <li class="list">Smart scene selection & alignment</li>
+                        </div>
+                        <button class="float-btn">
+                            Learn More
+                        </button>
+                    </div>
+                    <div class="float-layout">
+                        <div class="float-title">
+                            <p class="title">HooksMaster.io</p>
+                            <p class="subtitle">Generate powerful hooks that drive engagement instantly.</p>
+                        </div>
+                        <div class="float-list">
+                            <li class="list">AI-crafted hooks in seconds</li>
+                            <li class="list">Proven to increase scroll-stopping rates</li>
+                        </div>
+                        <button class="float-btn">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                <div class="logo">
+                    <img src="../assets/images/logo.svg" alt="">
+                </div>
+                <div class="video-container">
+                    <p class="title">
+                        Tutorial:
+                    </p>
+                    <div class="video">
+                        <img src="../assets/images/video-play-button.svg" alt="" class="play-button">
+                    </div>
+                </div>
+                <div class="upload-container">
+                    <p class="title">Upload Your Hooks:</p>
+                    <div class="upload-file" id="dropzone">
+                        <div class="upload-icon">
+                            <img src="../assets/images/upload-icon.svg" alt="">
+                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
+                                Drag And Drop</label>
+                        </div>
+                        <input type="file" id="fileInput" multiple>
+                        <!-- <div id="fileList"></div> -->
+                        <!-- Yeah iss lia ha k aghr ap file ka name show krwana chahty ho  -->
+                    </div>
+                </div>
+                <div class="upload-container">
+                    <p class="title">Upload Your Leads:</p>
+                    <div class="upload-file" id="dropzone">
+                        <div class="upload-icon">
+                            <img src="../assets/images/upload-icon.svg" alt="">
+                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
+                                Drag And Drop</label>
+                        </div>
+                        <input type="file" id="fileInput" multiple>
+                        <!-- <div id="fileList"></div> -->
+                        <!-- Yeah iss lia ha k aghr ap file ka name show krwana chahty ho  -->
+                    </div>
+                </div>
+                <div class="upload-container">
+                    <p class="title">Upload Your Bodies:</p>
+                    <div class="upload-file" id="dropzone">
+                        <div class="upload-icon">
+                            <img src="../assets/images/upload-icon.svg" alt="">
+                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
+                                Drag And Drop</label>
+                        </div>
+                        <input type="file" id="fileInput" multiple>
+                        <!-- <div id="fileList"></div> -->
+                    </div>
+                </div>
+                <div class="submit-button">
+                    <button class="submit-btn" id="active-btn">
+                        Create X Ad Variations
+                    </button>
+                    <button class="processing-button hidden" id="process-btn"
+                        onclick="window.location.href='variation.html'">
+                        <div class="loading-spinner"></div>
+                        Processing...
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/profileMenu.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+</body>
+
+</html>

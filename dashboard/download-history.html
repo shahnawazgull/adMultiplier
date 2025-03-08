@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download History | AdMultiplier</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="../dashboard/dashboard.html">
+                <img src="../assets/images/logo.svg" alt="">
+            </a>
+            <div class="profile-section">
+                <div class="credits">
+                    Credits Remaining: <span>25</span>
+                </div>
+                <div class="profile">
+                    <img src="../assets/images/profile-icon.svg" alt="" id="profileIcon">
+                    <div class="profile-menu hidden" id="profileMenu">
+                        <div class="user-info section">
+                            <p class="username">Moncef Meharzi</p>
+                            <p class="useremail">moncefmeharzi@gmail.com</p>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="links section">
+                            <a href="manage-subscription.html" class="link">Manage Subscription</a>
+                            <a href="download-history.html" class="link">Download History</a>
+                            <a href="#" class="link">Facebook Compaign Builder</a>
+                            <a href="#" class="link">Affiliate</a>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="logout section">
+                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon" alt="">
+                                Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="download-history">
+                <div class="head">
+                    <h3 class="head-title">Download History</h3>
+                    <a href="#" class="download-btn">
+                        <img src="../assets/images/download-icon.svg" alt="">
+                        Download All
+                    </a>
+                </div>
+                <div class="table-container">
+                    <table class="table">
+                        <thead class="thead">
+                            <tr class="tr">
+                                <td class="check td"> </td>
+                                <td class="file-name td">File Name</td>
+                                <td class="date td">Date</td>
+                                <td class="action td">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody">
+                            <tr class="tr">
+                                <td class="check td">
+                                    <input type="checkbox">
+                                </td>
+                                <td class="file-name td">
+                                    hook-1_body-1.mp4
+                                </td>
+                                <td class="date td">
+                                    05, march 2025
+                                </td>
+                                <td class="action td">
+                                    <a href="">
+                                        <img src="../assets/images/download-btn-blue.svg" alt="">
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr class="tr">
+                                <td class="check td">
+                                    <input type="checkbox">
+                                </td>
+                                <td class="file-name td">
+                                    hook-2_body-1.mp4
+                                </td>
+                                <td class="date td">
+                                    04, march 2025
+                                </td>
+                                <td class="action td">
+                                    <a href="">
+                                        <img src="../assets/images/download-btn-blue.svg" alt="">
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="pagination">1 of 2 Selected</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/profileMenu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: ; */
+    box-sizing: border-box;
+}
+
+body {
+    /* background-image: url(../images/background.jpeg); */
+    background: linear-gradient(70deg, #c2e9fb, #a1c4fd, #d4a4ff, #d4a4ff);
+    background-position: center;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.main-container {
+    height: 100vh;
+    /* margin-top: 30vh; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .container {
+    width: 497px;
+    /* height: 370px; */
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+.container .logo {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.logo .back-icon {
+    position: absolute;
+    left: 0px;
+    top: 5px;
+}
+
+.container .content {
+    width: 100%;
+}
+
+.content .form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+
+/* Auth Form CSS  */
+
+.content .form .input-groups {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form .input-groups .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-groups .form-group .label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1%;
+
+}
+
+.input-groups .group-password {
+    position: relative;
+}
+
+.input-groups .group-password .show-eye {
+    position: absolute;
+    bottom: 34px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.input-groups .group-password .show-eye2 {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.input-groups .form-group .input {
+    width: 100%;
+    all: unset;
+    border-radius: 6px;
+    border: 1px solid #CBD5E1;
+    padding: 9px;
+    font-size: 16px;
+}
+
+.input-groups .form-group .input::placeholder {
+    color: #94A3B8;
+}
+
+.link-tag {
+    font-family: Inter;
+    font-weight: 400;
+    line-height: 20px;
+    color: #0084FF;
+
+}
+
+.form .button {
+    all: unset;
+    width: 449;
+    height: 40;
+    border-radius: 6px;
+    gap: 10px;
+    background-color: #0059FF;
+    padding: 10px 16px;
+    text-align: center;
+    color: white;
+    font: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+
+/* Auth Form Content - Text  */
+
+.container .text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #222222;
+    text-align: center;
+}
+
+
+.container .text-content .title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.2px;
+    letter-spacing: 0%;
+}
+
+.container .text-content .subtitle,
+.container .heading .subtitle {
+    color: #646464;
+}
+
+
+/* Payment Register Form CSS  */
+.container .heading {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.container .heading .title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.2px;
+}

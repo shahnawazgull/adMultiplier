@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Details | AdMultiplier</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/header.css">
+    <link rel="stylesheet" href="../assets/css/subscription.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <a href="../dashboard/dashboard.html">
+                <img src="../assets/images/logo.svg" alt="">
+            </a>
+            <div class="profile-section">
+                <div class="credits">
+                    Credits Remaining: <span>25</span>
+                </div>
+                <div class="profile">
+                    <img src="../assets/images/profile-icon.svg" alt="" id="profileIcon">
+                    <div class="profile-menu hidden" id="profileMenu">
+                        <div class="user-info section">
+                            <p class="username">Moncef Meharzi</p>
+                            <p class="useremail">moncefmeharzi@gmail.com</p>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="links section">
+                            <a href="manage-subscription.html" class="link">Manage Subscription</a>
+                            <a href="download-history.html" class="link">Download History</a>
+                            <a href="#" class="link">Facebook Compaign Builder</a>
+                            <a href="#" class="link">Affiliate</a>
+                        </div>
+                        <hr class="profile-hr">
+                        <div class="logout section">
+                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon" alt="">
+                                Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="subscription-details">
+                <div class="head">
+                    <h3 class="title">
+                        Subscription Details
+                    </h3>
+                    <a href="" class="subscription-btn">
+                        Manage Billing Info
+                    </a>
+                </div>
+                <hr class="subscription-hr">
+                <div class="section current-plan">
+                    <p class="title">
+                        Current Plan
+                    </p>
+                    <a href="" class="current-plan-btn btn">Professional</a>
+                </div>
+                <div class="section subscription-status">
+                    <p class="title">
+                        Subscription status
+                    </p>
+                    <a href="" class="subscription-status-btn btn">
+                        <div class="circle"></div> Active
+                    </a>
+                </div>
+                <div class="section credits-usage">
+                    <p class="title">
+                        Credit Usage
+                    </p>
+                    <div class="credits-detail">
+                        <p class="subtitle">Any unused credit will roll over to the next month</p>
+                        <p class="subtitle">reset in 24 days</p>
+                    </div>
+                </div>
+            </div>
+            <div class="need-credits">
+                <div class="need-credit-head">
+                    <h3 class="title">
+                        Neeed More Credit?
+                    </h3>
+                    <p class="subtitle">
+                        Out of ad variations? No worries! Instantly add more credits to your account and keep generating
+                        high-converting ad creatives without interruption.
+                    </p>
+                </div>
+                <form action="" class="need-credit-form">
+                    <div class="content">
+                        <p class="head">
+                            Buy More Credits
+                        </p>
+                        <div class="input-group">
+                            <label for="amount">
+                                $5 Each
+                            </label>
+                            <input type="email" name="amount" id="amount" placeholder="Amount">
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            Buy
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+            <div class="scale-level">
+                <div class="head">
+                    <h3 class="head-title">
+                        Scale <span class="blue">Creatives</span> at Any Level
+                    </h3>
+                </div>
+                <div class="scale-cards">
+                    <div class="card">
+                        <div class="price">
+                            <p class="title">
+                                Pro Plan
+                            </p>
+                            <p class="amount">
+                                $497
+                                <span class="time">/month</span>
+                            </p>
+                            <p class="subtitle">
+                                $0.99 Per Variation
+                            </p>
+                        </div>
+                        <div class="validation">
+                            <p class="valid-title">
+                                <img src="../assets/images/billing-check.svg" alt="">
+                                500 Ad Variations/Month – Test & Scale faster
+                            </p>
+                            <p class="valid-title">
+                                <img src="../assets/images/billing-check.svg" alt="">
+                                One-Click Facebook Upload No Manual Work
+                            </p>
+                        </div>
+                        <button class="cancel-btn" id="cancel-btn">
+                            Cancel Plan
+                        </button>
+                    </div>
+                    <div class="card">
+                        <div class="price">
+                            <p class="title premium">
+                                Premium Plan
+                            </p>
+                            <p class="amount">
+                                $997
+                                <span class="time">/month</span>
+                            </p>
+                            <p class="subtitle">
+                                $0.66 Per Variation
+                            </p>
+                        </div>
+                        <div class="validation">
+                            <p class="valid-title">
+                                <img src="../assets/images/billing-check.svg" alt="">
+                                1500 Ad Variations/Month – Test & Scale faster
+                            </p>
+                            <p class="valid-title">
+                                <img src="../assets/images/billing-check.svg" alt="">
+                                One-Click Facebook Upload No Manual Work
+                            </p>
+                        </div>
+                        <button class="card-btn">
+                            Update Plan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popup Section -->
+        <div class="popup hidden" id="popup">
+            <div class="popup-card">
+                <img src="../assets/images/cross-black.svg" class="cross" alt="">
+                <div class="head">
+                    <p class="title">
+                        Cancel Plan?
+                    </p>
+                    <div class="subtitle">
+                        Are you sure you went to cancel your subscription plan?
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button class="no" id="no">No</button>
+                    <button class="yes">Yes, Cancel My Plan</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/profileMenu.js"></script>
+</body>
+
+</html>
