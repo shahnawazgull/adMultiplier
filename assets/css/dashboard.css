@@ -235,6 +235,11 @@ title {
     display: none;
 }
 
+.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 /* Button Css  */
 .content .submit-button {
     width: 100%;

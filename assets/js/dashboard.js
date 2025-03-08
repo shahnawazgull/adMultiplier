@@ -23,22 +23,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let leadsFiles = [];
     let bodyFiles = [];
 
-    // Formula: Total Variations = (Number of Hooks) × (Number of Leads) × (Number of Bodies)
+    // Formula: Total Variations = (Number of Hooks or 1) × (Number of Leads or 1) × (Number of Bodies)
+    // Body is compulsory, and at least one Hook or Lead is required
     function updateVariations() {
-        const numberOfHooks = hooksFiles.length;
-        const numberOfLeads = leadsFiles.length;
+        const numberOfHooks = hooksFiles.length > 0 ? hooksFiles.length : 1; // Default to 1 if no hooks
+        const numberOfLeads = leadsFiles.length > 0 ? leadsFiles.length : 1; // Default to 1 if no leads
         const numberOfBodies = bodyFiles.length;
-        const totalVariations = numberOfHooks * numberOfLeads * numberOfBodies;
+
+        // Check if body is present and at least one hook or lead
+        const isValid = numberOfBodies > 0 && (hooksFiles.length > 0 || leadsFiles.length > 0);
+        const totalVariations = isValid ? numberOfHooks * numberOfLeads * numberOfBodies : 0;
+
         variationCount.textContent = totalVariations;
+        activeBtn.disabled = !isValid; // Disable button if invalid
+        if (!isValid) {
+            activeBtn.style.opacity = '0.5'; // Visual cue for disabled state
+        } else {
+            activeBtn.style.opacity = '1';
+        }
     }
 
     // Button Toggler and Redirect Logic
     activeBtn.addEventListener('click', () => {
-        activeBtn.classList.add('hidden');
-        processBtn.classList.remove('hidden');
-        setTimeout(() => {
-            window.location.href = 'variation.html';
-        }, 2000); // 2-second delay
+        if (!activeBtn.disabled) {
+            activeBtn.classList.add('hidden');
+            processBtn.classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = 'variation.html';
+            }, 2000); // 2-second delay
+        }
     });
 
     // Drag-and-Drop and Click Upload Functionality
