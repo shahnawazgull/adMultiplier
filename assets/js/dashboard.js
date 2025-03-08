@@ -1,83 +1,142 @@
-// Button Toggler and Redirect Logic
-const activeBtn = document.getElementById('active-btn');
-const processBtn = document.getElementById('process-btn');
+document.addEventListener('DOMContentLoaded', () => {
+    // Profile Menu Logic
+    const profileIcon = document.getElementById('profileIcon');
+    const profileMenu = document.getElementById('profileMenu');
 
-activeBtn.addEventListener('click', () => {
-    activeBtn.classList.add('hidden');
-    processBtn.classList.remove('hidden');
-    setTimeout(() => {
-        window.location.href = 'variation.html';
-    }, 2000); // 2-second delay
-});
-
-// Drag-and-Drop Functionality for All Upload Sections
-const dropzones = document.querySelectorAll('.upload-file'); // Target all upload-file divs
-dropzones.forEach((dropzone, index) => {
-    const fileInput = dropzone.querySelector('input[type="file"]'); // Find input inside this dropzone
-    const fileList = dropzone.querySelector('#fileList'); // Optional: only if uncommented in HTML
-
-    // Prevent default drag behaviors
-    ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
-        dropzone.addEventListener(eventName, preventDefaults, false);
-        document.body.addEventListener(eventName, preventDefaults, false);
+    profileIcon.addEventListener('click', () => {
+        profileMenu.classList.toggle('hidden');
     });
 
-    // Highlight dropzone on drag
-    ['dragenter', 'dragover'].forEach(eventName => {
-        dropzone.addEventListener(eventName, () => highlight(dropzone), false);
-    });
-
-    ['dragleave', 'drop'].forEach(eventName => {
-        dropzone.addEventListener(eventName, () => unhighlight(dropzone), false);
-    });
-
-    // Handle drop event
-    dropzone.addEventListener('drop', (e) => handleDrop(e, fileList), false);
-
-    // Trigger file input on click
-    dropzone.addEventListener('click', () => fileInput.click());
-
-    // Handle file selection via input
-    fileInput.addEventListener('change', () => handleFiles(fileInput.files, fileList), false);
-});
-
-function preventDefaults(e) {
-    e.preventDefault();
-    e.stopPropagation();
-}
-
-function highlight(dropzone) {
-    dropzone.classList.add('dragover');
-}
-
-function unhighlight(dropzone) {
-    dropzone.classList.remove('dragover');
-}
-
-function handleDrop(e, fileList) {
-    const dt = e.dataTransfer;
-    const files = dt.files;
-    handleFiles(files, fileList);
-}
-
-function handleFiles(files, fileList) {
-    if (!fileList) return; // Skip if fileList isn’t present in HTML
-    fileList.innerHTML = ''; // Clear previous file list
-
-    Array.from(files).forEach(file => {
-        // Check if the file is a video file
-        if (file.type.startsWith('video/')) {
-            const fileElement = document.createElement('div');
-            fileElement.textContent = `${file.name} (${formatFileSize(file.size)})`;
-            fileList.appendChild(fileElement);
-        } else {
-            alert(`${file.name} is not a valid video file! Please upload a valid video file.`);
+    document.addEventListener('click', (event) => {
+        if (!profileIcon.contains(event.target) && !profileMenu.contains(event.target)) {
+            profileMenu.classList.add('hidden');
         }
     });
-}
 
-function formatFileSize(bytes) {
-    if (bytes < 1024) return bytes + ' bytes';
-    else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-    else return (bytes / 1048576).toFixed(1) + ' MB';
-}
+    // Dashboard Logic
+    const activeBtn = document.getElementById('active-btn');
+    const processBtn = document.getElementById('process-btn');
+    const variationCount = document.getElementById('variationCount');
+
+    // Track files for variations
+    let hooksFiles = [];
+    let leadsFiles = [];
+    let bodyFiles = [];
+
+    // Formula: Total Variations = (Number of Hooks) × (Number of Leads) × (Number of Bodies)
+    function updateVariations() {
+        const numberOfHooks = hooksFiles.length;
+        const numberOfLeads = leadsFiles.length;
+        const numberOfBodies = bodyFiles.length;
+        const totalVariations = numberOfHooks * numberOfLeads * numberOfBodies;
+        variationCount.textContent = totalVariations;
+    }
+
+    // Button Toggler and Redirect Logic
+    activeBtn.addEventListener('click', () => {
+        activeBtn.classList.add('hidden');
+        processBtn.classList.remove('hidden');
+        setTimeout(() => {
+            window.location.href = 'variation.html';
+        }, 2000); // 2-second delay
+    });
+
+    // Drag-and-Drop and Click Upload Functionality
+    const dropzones = document.querySelectorAll('.upload-file');
+    dropzones.forEach((dropzone) => {
+        const fileInput = dropzone.querySelector('input[type="file"]');
+        const uploadIcon = dropzone.querySelector('.upload-icon');
+        const fileCount = dropzone.querySelector('.file-count');
+        const errorMessage = dropzone.querySelector('.error-message');
+        const index = 
+            dropzone.id === 'hooksDropzone' ? 0 :
+            dropzone.id === 'leadsDropzone' ? 1 :
+            dropzone.id === 'bodyDropzone' ? 2 : -1;
+
+        // Prevent default drag behaviors
+        dropzone.addEventListener('dragenter', preventDefaults, false);
+        dropzone.addEventListener('dragover', preventDefaults, false);
+        dropzone.addEventListener('dragleave', preventDefaults, false);
+        dropzone.addEventListener('drop', preventDefaults, false);
+
+        // Highlight dropzone on drag
+        dropzone.addEventListener('dragenter', () => highlight(dropzone), false);
+        dropzone.addEventListener('dragover', () => highlight(dropzone), false);
+        dropzone.addEventListener('dragleave', () => unhighlight(dropzone), false);
+        dropzone.addEventListener('drop', () => unhighlight(dropzone), false);
+
+        // Handle drop event
+        dropzone.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            handleFiles(files, index, uploadIcon, fileCount, errorMessage);
+        }, false);
+
+        // Handle file selection via input (click upload)
+        fileInput.addEventListener('change', (e) => {
+            const files = e.target.files;
+            handleFiles(files, index, uploadIcon, fileCount, errorMessage);
+        }, false);
+
+        // Trigger file input on click, but prevent double processing
+        dropzone.addEventListener('click', (e) => {
+            if (e.target === dropzone || e.target === uploadIcon || e.target === fileCount || e.target === errorMessage || e.target.tagName === 'LABEL' || e.target.tagName === 'IMG') {
+                fileInput.click();
+            }
+        }, false);
+    });
+
+    function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+
+    function highlight(dropzone) {
+        dropzone.classList.add('dragover');
+    }
+
+    function unhighlight(dropzone) {
+        dropzone.classList.remove('dragover');
+    }
+
+    function handleFiles(files, index, uploadIcon, fileCount, errorMessage) {
+        // Filter video files
+        const videoFiles = Array.from(files).filter(file => file.type.startsWith('video/'));
+        const nonVideoFiles = Array.from(files).filter(file => !file.type.startsWith('video/'));
+
+        // Update counts based on dropzone index (append for both drag and click)
+        if (index === 0) { // Hooks
+            hooksFiles = hooksFiles.concat(videoFiles);
+            if (hooksFiles.length > 0) {
+                uploadIcon.classList.add('hidden');
+                fileCount.classList.remove('hidden');
+                fileCount.textContent = `${hooksFiles.length} files uploaded`;
+                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+            }
+        } else if (index === 1) { // Leads
+            leadsFiles = leadsFiles.concat(videoFiles);
+            if (leadsFiles.length > 0) {
+                uploadIcon.classList.add('hidden');
+                fileCount.classList.remove('hidden');
+                fileCount.textContent = `${leadsFiles.length} files uploaded`;
+                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+            }
+        } else if (index === 2) { // Body
+            bodyFiles = bodyFiles.concat(videoFiles);
+            if (bodyFiles.length > 0) {
+                uploadIcon.classList.add('hidden');
+                fileCount.classList.remove('hidden');
+                fileCount.textContent = `${bodyFiles.length} files uploaded`;
+                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+            }
+        }
+
+        // Show error if non-video files are uploaded
+        if (nonVideoFiles.length > 0) {
+            errorMessage.classList.remove('hidden');
+        } else if (videoFiles.length > 0) {
+            errorMessage.classList.add('hidden'); // Hide error if only valid videos are uploaded
+        }
+
+        updateVariations();
+    }
+});

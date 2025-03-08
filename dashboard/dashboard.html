@@ -36,8 +36,7 @@
                         </div>
                         <hr class="profile-hr">
                         <div class="logout section">
-                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon"
-                                    alt="">
+                            <a href="../" class="link"><img src="../assets/images/logout.svg" class="logout-icon" alt="">
                                 Logout</a>
                         </div>
                     </div>
@@ -47,7 +46,6 @@
     </header>
     <main>
         <div class="container">
-
             <div class="content">
                 <div class="floating-content">
                     <div class="float-layout">
@@ -91,45 +89,43 @@
                 </div>
                 <div class="upload-container">
                     <p class="title">Upload Your Hooks:</p>
-                    <div class="upload-file" id="dropzone">
+                    <div class="upload-file" id="hooksDropzone">
                         <div class="upload-icon">
                             <img src="../assets/images/upload-icon.svg" alt="">
-                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
-                                Drag And Drop</label>
+                            <label for="hooksInput" class="upload-label"><span class="bold">Click To Upload</span> Or Drag And Drop</label>
                         </div>
-                        <input type="file" id="fileInput" accept="video/*">
-                        <!-- <div id="fileList"></div> -->
-                        <!-- Yeah iss lia ha k aghr ap file ka name show krwana chahty ho  -->
+                        <div class="file-count hidden"></div>
+                        <div class="error-message hidden">Invalid file type. Please upload only video files.</div>
+                        <input type="file" id="hooksInput" multiple accept="video/*">
                     </div>
                 </div>
                 <div class="upload-container">
                     <p class="title">Upload Your Leads:</p>
-                    <div class="upload-file" id="dropzone">
+                    <div class="upload-file" id="leadsDropzone">
                         <div class="upload-icon">
                             <img src="../assets/images/upload-icon.svg" alt="">
-                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
-                                Drag And Drop</label>
+                            <label for="leadsInput" class="upload-label"><span class="bold">Click To Upload</span> Or Drag And Drop</label>
                         </div>
-                        <input type="file" id="fileInput" accept="video/*">
-                        <!-- <div id="fileList"></div> -->
-                        <!-- Yeah iss lia ha k aghr ap file ka name show krwana chahty ho  -->
+                        <div class="file-count hidden"></div>
+                        <div class="error-message hidden">Invalid file type. Please upload only video files.</div>
+                        <input type="file" id="leadsInput" multiple accept="video/*">
                     </div>
                 </div>
                 <div class="upload-container">
                     <p class="title">Upload Your Bodies:</p>
-                    <div class="upload-file" id="dropzone">
+                    <div class="upload-file" id="bodyDropzone">
                         <div class="upload-icon">
                             <img src="../assets/images/upload-icon.svg" alt="">
-                            <label for="fileInput" class="upload-label"><span class="bold">Click To Upload</span> Or
-                                Drag And Drop</label>
+                            <label for="bodyInput" class="upload-label"><span class="bold">Click To Upload</span> Or Drag And Drop</label>
                         </div>
-                        <input type="file" id="fileInput" accept="video/*">
-                        <!-- <div id="fileList"></div> -->
+                        <div class="file-count hidden"></div>
+                        <div class="error-message hidden">Invalid file type. Please upload only video files.</div>
+                        <input type="file" id="bodyInput" multiple accept="video/*">
                     </div>
                 </div>
                 <div class="submit-button">
                     <button class="submit-btn" id="active-btn">
-                        Create X Ad Variations
+                        Create <span id="variationCount">0</span> Ad Variations
                     </button>
                     <button class="processing-button hidden" id="process-btn"
                         onclick="window.location.href='variation.html'">
@@ -140,7 +136,6 @@
             </div>
         </div>
     </main>
-    <script src="../assets/js/profileMenu.js"></script>
     <script src="../assets/js/dashboard.js"></script>
 </body>
 
