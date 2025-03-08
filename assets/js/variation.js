@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start adding variations one by one
     addVariationsSequentially();
 
-    // Clear localStorage after processing (optional)
     window.onunload = () => {
         localStorage.removeItem('variations');
         localStorage.removeItem('totalVariations');

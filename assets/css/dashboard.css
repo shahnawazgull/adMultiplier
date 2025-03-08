@@ -570,5 +570,5 @@ title {
 }
 /* Style for completed files */
 .download-files .file.completed .file-name {
-    color: #0066FF; /* Matches the inner-bar color for consistency */
+    color: #0066FF; 
 }

@@ -86,10 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const uploadIcon = dropzone.querySelector('.upload-icon');
         const fileCount = dropzone.querySelector('.file-count');
         const errorMessage = dropzone.querySelector('.error-message');
-        const index = 
+        const index =
             dropzone.id === 'hooksDropzone' ? 0 :
-            dropzone.id === 'leadsDropzone' ? 1 :
-            dropzone.id === 'bodyDropzone' ? 2 : -1;
+                dropzone.id === 'leadsDropzone' ? 1 :
+                    dropzone.id === 'bodyDropzone' ? 2 : -1;
 
         // Prevent default drag behaviors
         dropzone.addEventListener('dragenter', preventDefaults, false);
