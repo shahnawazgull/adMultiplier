@@ -77,7 +77,11 @@ header {
     padding: 50px 10%;
     margin-top: 97px;
 }
-
+.header-main .separator {
+    width: 1px;
+    height: 24px;
+    background-color: #CCCCCC;
+}
 .sub-main {
     background: white;
     padding: 40px;

@@ -12,7 +12,6 @@ body {
     background-color: #fff;
 }
 
-
 header {
     max-width: 100vw;
     background: white;
@@ -71,25 +70,17 @@ header {
     line-height: 24px;
 }
 
+.header-main .separator {
+    width: 1px;
+    height: 24px;
+    background-color: #CCCCCC;
+}
+
 main {
     font-family: 'Poppins', sans-serif;
 }
 
-/* .banner,
-.works,
-.bonus-section,
-.contact-section,
-.why-switch-section {
-    position: relative;
-    background: url('assets/images/banner.jpeg');
-    background-size: cover;
-    /* background-attachment: fixed; */
-/* max-width: 1296px;
-    margin: 0 auto;
-    border-radius: 16px;
-    margin-bottom: 124px;
-    z-index: -1;
-} */
+
 .banner {
     position: relative;
     background: linear-gradient(100deg, #c2e9fb, #a1c4fd, #d4a4ff, #d4a4ff);
@@ -758,8 +749,7 @@ a {
 }
 
 .access-btn {
-    display: flex
-;
+    display: flex;
     justify-content: center;
     margin: 0 auto;
     background-color: #0059FF;
