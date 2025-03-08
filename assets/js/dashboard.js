@@ -42,40 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Button Toggler and Redirect Logic with File Combinations
+    // Button Toggler and Redirect Logic with Formatted Variations
     activeBtn.addEventListener('click', () => {
         if (!activeBtn.disabled) {
             activeBtn.classList.add('hidden');
             processBtn.classList.remove('hidden');
 
-            // Generate all possible combinations
+            // Generate variations with "hook-X_body-Y.mp4" format
             const variations = [];
-            for (let hook of hooksFiles) {
-                for (let lead of leadsFiles) {
-                    for (let body of bodyFiles) {
-                        variations.push({
-                            name: `${hook.name.replace('.mp4', '')}_${lead.name.replace('.mp4', '')}_${body.name.replace('.mp4', '')}.mp4`
-                        });
-                    }
-                }
-                // If no leads, pair hook with each body
-                if (leadsFiles.length === 0) {
-                    for (let body of bodyFiles) {
-                        variations.push({
-                            name: `${hook.name.replace('.mp4', '')}_body_${body.name.replace('.mp4', '')}.mp4`
-                        });
-                    }
-                }
-            }
-            // If no hooks, pair lead with each body
+            hooksFiles.forEach((hook, hookIndex) => {
+                bodyFiles.forEach((body, bodyIndex) => {
+                    variations.push({
+                        name: `hook-${hookIndex + 1}_body-${bodyIndex + 1}.mp4`
+                    });
+                });
+            });
+            // If no hooks, use leads (optional, based on your logic preference)
             if (hooksFiles.length === 0 && leadsFiles.length > 0) {
-                for (let lead of leadsFiles) {
-                    for (let body of bodyFiles) {
+                leadsFiles.forEach((lead, leadIndex) => {
+                    bodyFiles.forEach((body, bodyIndex) => {
                         variations.push({
-                            name: `${lead.name.replace('.mp4', '')}_body_${body.name.replace('.mp4', '')}.mp4`
+                            name: `lead-${leadIndex + 1}_body-${bodyIndex + 1}.mp4`
                         });
-                    }
-                }
+                    });
+                });
             }
 
             // Store variations and total in localStorage

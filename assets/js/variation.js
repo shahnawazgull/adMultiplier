@@ -29,28 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
         percentageText.textContent = `${completedVariations}/${totalVariations} completed`;
     }
 
-    // Function to truncate file name to first 26 characters with extension
-    function truncateFileName(fullName) {
-        const extension = fullName.includes('.mp4') ? '.mp4' : '';
-        const baseName = fullName.replace(extension, '');
-        const truncatedBaseName = baseName.substring(0, 26);
-        return `${truncatedBaseName}${extension}`;
-    }
-
     // Function to add variations one by one
     function addVariationsSequentially() {
         if (completedVariations < variations.length) {
             setTimeout(() => {
                 const variation = variations[completedVariations];
-                const truncatedName = truncateFileName(variation.name);
                 const newFile = document.createElement('div');
-                newFile.classList.add('file', 'completed'); // Add 'completed' class immediately
+                newFile.classList.add('file', 'completed');
                 newFile.innerHTML = `
-        <p class="file-name">${truncatedName}</p>
-        <a href="" class="download-btn">
-            <img src="../assets/images/download-icon.svg" alt="">
-        </a>
-    `;
+                    <p class="file-name">${variation.name}</p>
+                    <a href="" class="download-btn">
+                        <img src="../assets/images/download-icon.svg" alt="">
+                    </a>
+                `;
                 downloadFiles.appendChild(newFile);
 
                 completedVariations += 1;
