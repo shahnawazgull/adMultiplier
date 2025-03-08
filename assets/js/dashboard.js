@@ -26,31 +26,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // Formula: Total Variations = (Number of Hooks or 1) × (Number of Leads or 1) × (Number of Bodies)
     // Body is compulsory, and at least one Hook or Lead is required
     function updateVariations() {
-        const numberOfHooks = hooksFiles.length > 0 ? hooksFiles.length : 1; // Default to 1 if no hooks
-        const numberOfLeads = leadsFiles.length > 0 ? leadsFiles.length : 1; // Default to 1 if no leads
+        const numberOfHooks = hooksFiles.length > 0 ? hooksFiles.length : 1;
+        const numberOfLeads = leadsFiles.length > 0 ? leadsFiles.length : 1;
         const numberOfBodies = bodyFiles.length;
 
-        // Check if body is present and at least one hook or lead
         const isValid = numberOfBodies > 0 && (hooksFiles.length > 0 || leadsFiles.length > 0);
         const totalVariations = isValid ? numberOfHooks * numberOfLeads * numberOfBodies : 0;
 
         variationCount.textContent = totalVariations;
-        activeBtn.disabled = !isValid; // Disable button if invalid
+        activeBtn.disabled = !isValid;
         if (!isValid) {
-            activeBtn.style.opacity = '0.5'; // Visual cue for disabled state
+            activeBtn.style.opacity = '0.5';
         } else {
             activeBtn.style.opacity = '1';
         }
     }
 
-    // Button Toggler and Redirect Logic
+    // Button Toggler and Redirect Logic with File Combinations
     activeBtn.addEventListener('click', () => {
         if (!activeBtn.disabled) {
             activeBtn.classList.add('hidden');
             processBtn.classList.remove('hidden');
+
+            // Generate all possible combinations
+            const variations = [];
+            for (let hook of hooksFiles) {
+                for (let lead of leadsFiles) {
+                    for (let body of bodyFiles) {
+                        variations.push({
+                            name: `${hook.name.replace('.mp4', '')}_${lead.name.replace('.mp4', '')}_${body.name.replace('.mp4', '')}.mp4`
+                        });
+                    }
+                }
+                // If no leads, pair hook with each body
+                if (leadsFiles.length === 0) {
+                    for (let body of bodyFiles) {
+                        variations.push({
+                            name: `${hook.name.replace('.mp4', '')}_body_${body.name.replace('.mp4', '')}.mp4`
+                        });
+                    }
+                }
+            }
+            // If no hooks, pair lead with each body
+            if (hooksFiles.length === 0 && leadsFiles.length > 0) {
+                for (let lead of leadsFiles) {
+                    for (let body of bodyFiles) {
+                        variations.push({
+                            name: `${lead.name.replace('.mp4', '')}_body_${body.name.replace('.mp4', '')}.mp4`
+                        });
+                    }
+                }
+            }
+
+            // Store variations and total in localStorage
+            localStorage.setItem('variations', JSON.stringify(variations));
+            localStorage.setItem('totalVariations', variations.length);
+
+            // Simulate processing delay before redirect
             setTimeout(() => {
                 window.location.href = 'variation.html';
-            }, 2000); // 2-second delay
+            }, 2000);
         }
     });
 
@@ -123,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadIcon.classList.add('hidden');
                 fileCount.classList.remove('hidden');
                 fileCount.textContent = `${hooksFiles.length} files uploaded`;
-                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+                errorMessage.classList.add('hidden');
             }
         } else if (index === 1) { // Leads
             leadsFiles = leadsFiles.concat(videoFiles);
@@ -131,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadIcon.classList.add('hidden');
                 fileCount.classList.remove('hidden');
                 fileCount.textContent = `${leadsFiles.length} files uploaded`;
-                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+                errorMessage.classList.add('hidden');
             }
         } else if (index === 2) { // Body
             bodyFiles = bodyFiles.concat(videoFiles);
@@ -139,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 uploadIcon.classList.add('hidden');
                 fileCount.classList.remove('hidden');
                 fileCount.textContent = `${bodyFiles.length} files uploaded`;
-                errorMessage.classList.add('hidden'); // Hide error if valid files exist
+                errorMessage.classList.add('hidden');
             }
         }
 
@@ -147,7 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (nonVideoFiles.length > 0) {
             errorMessage.classList.remove('hidden');
         } else if (videoFiles.length > 0) {
-            errorMessage.classList.add('hidden'); // Hide error if only valid videos are uploaded
+            errorMessage.classList.add('hidden');
         }
 
         updateVariations();

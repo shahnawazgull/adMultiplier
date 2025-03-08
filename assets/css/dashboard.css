@@ -568,3 +568,7 @@ title {
     color: #000000B2;
     font-size: 12px;
 }
+/* Style for completed files */
+.download-files .file.completed .file-name {
+    color: #0066FF; /* Matches the inner-bar color for consistency */
+}
