@@ -12,7 +12,9 @@
     justify-content: space-between;
     height: 580px;
 }
-
+.file-checkbox{
+    cursor: pointer;
+}
 .floating-content .float-layout {
     width: 337px;
     padding: 14px 24px 24px 24px;

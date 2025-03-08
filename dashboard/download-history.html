@@ -49,7 +49,7 @@
             <div class="download-history">
                 <div class="head">
                     <h3 class="head-title">Download History</h3>
-                    <a href="#" class="download-btn">
+                    <a href="#" class="download-btn" id="downloadBtn">
                         <img src="../assets/images/download-icon.svg" alt="">
                         Download All
                     </a>
@@ -67,7 +67,7 @@
                         <tbody class="tbody">
                             <tr class="tr">
                                 <td class="check td">
-                                    <input type="checkbox">
+                                    <input type="checkbox" class="file-checkbox">
                                 </td>
                                 <td class="file-name td">
                                     hook-1_body-1.mp4
@@ -83,7 +83,7 @@
                             </tr>
                             <tr class="tr">
                                 <td class="check td">
-                                    <input type="checkbox">
+                                    <input type="checkbox" class="file-checkbox">
                                 </td>
                                 <td class="file-name td">
                                     hook-2_body-1.mp4
@@ -99,12 +99,37 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p class="pagination">1 of 2 Selected</p>
+                    <p class="pagination" id="selectionCount">0 of 2 Selected</p>
                 </div>
             </div>
         </div>
     </main>
     <script src="../assets/js/profileMenu.js"></script>
+    <script>
+        const checkboxes = document.querySelectorAll('.file-checkbox');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const selectionCount = document.getElementById('selectionCount');
+
+        function updateDownloadState() {
+            const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+            const selectedCount = selectedCheckboxes.length;
+            const totalCount = checkboxes.length;
+
+            selectionCount.textContent = `${selectedCount} of ${totalCount} Selected`;
+
+            if (selectedCount > 0) {
+                downloadBtn.textContent = 'Download Selected';
+            } else {
+                downloadBtn.textContent = 'Download All';
+            }
+        }
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateDownloadState);
+        });
+
+        updateDownloadState();
+    </script>
 </body>
 
 </html>
