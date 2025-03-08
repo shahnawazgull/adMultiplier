@@ -65,9 +65,14 @@ function handleFiles(files, fileList) {
     fileList.innerHTML = ''; // Clear previous file list
 
     Array.from(files).forEach(file => {
-        const fileElement = document.createElement('div');
-        fileElement.textContent = `${file.name} (${formatFileSize(file.size)})`;
-        fileList.appendChild(fileElement);
+        // Check if the file is a video file
+        if (file.type.startsWith('video/')) {
+            const fileElement = document.createElement('div');
+            fileElement.textContent = `${file.name} (${formatFileSize(file.size)})`;
+            fileList.appendChild(fileElement);
+        } else {
+            alert(`${file.name} is not a valid video file! Please upload a valid video file.`);
+        }
     });
 }
 
